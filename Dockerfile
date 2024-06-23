@@ -1,20 +1,20 @@
-# Use the official Flutter image
-FROM cirrusci/flutter:3.7.7
+# Use the official Dart image with Flutter pre-installed
+FROM cirrusci/flutter:stable
 
-# Install required packages
-RUN apt-get update && apt-get install -y libglu1-mesa
-
-# Set the working directory
+# Create and set the working directory
 WORKDIR /app
 
-# Copy the project files
+# Copy the pubspec files
+COPY pubspec.yaml pubspec.lock ./
+
+# Install the dependencies
+RUN flutter pub get
+
+# Copy the rest of the application files
 COPY . .
 
-# Run Flutter doctor to check the environment
-RUN flutter doctor
-
-# Expose port for the Flutter development server
+# Expose port 8080 for the web server
 EXPOSE 8080
 
-# Set the entry point to start the app
-CMD ["flutter", "run", "-d", "web-server", "--web-port", "8080"]
+# Run the application
+CMD ["flutter", "run", "-d", "chrome", "--web-port", "8080", "--web-hostname", "0.0.0.0"]
