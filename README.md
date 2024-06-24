@@ -11,4 +11,5 @@ docker run -it -p 8080:8080 -v $(pwd)/hive_data:/app/hive_data flutter-todo-app
 ## To Do: 
  - Add better design
  - Improve it for production (delete unnecessary files)
+ - Solve the problem of saving similar documents(records) in database
  

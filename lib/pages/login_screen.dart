@@ -65,13 +65,18 @@ class _LoginScreenState extends State<LoginScreen> {
               obscureText: true,
             ),
             SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: _login,
-              child: Text('Login'),
-            ),
-            ElevatedButton(
-              onPressed: _register,
-              child: Text('Register'),
+            Row(
+              children: [
+                ElevatedButton(
+                  onPressed: _login,
+                  child: Text('Login'),
+                ),
+                SizedBox(width: 20),
+                ElevatedButton(
+                  onPressed: _register,
+                  child: Text('Register'),
+                ),
+              ],
             ),
           ],
         ),

@@ -72,7 +72,7 @@ class _TodoScreenState extends State<TodoScreen> {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          children: [
+          children: <Widget>[
             TextField(
               controller: _todoController,
               decoration: InputDecoration(labelText: 'New To-Do'),
